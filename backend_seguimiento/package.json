@@ -1,5 +1,5 @@
 {
-  "name": "backend_kiosko",
+  "name": "backend_seguimiento",
   "version": "1.0.0",
   "description": "Backend de la página de seguimiento",
   "main": "server.js",
