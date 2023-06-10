@@ -1,0 +1,35 @@
+<div class="container">
+  <h4>Historial de mediciones</h4>
+
+  <table class="table table-hover text-center">
+      <thead>
+        <tr>
+          <th scope="col">Fecha</th>
+          <th scope="col">Ritmo cardiaco (lpm)</th>
+          <th scope="col">Frecuencia respiratoria (rpm)</th>
+          <th scope="col">Peso (kg)</th>
+          <th scope="col">Altura (m)</th>
+          <th scope="col">BMI</th>
+          <th scope="col">Saturación oxígeno (%)</th>
+          <th scope="col">Temperatura (ºC)</th>
+          <th scope="col">Presión sanguínea (mmHg)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of datos; let i = index" [ngClass]="{'table-row-even': i % 2 === 0, 'table-row-odd': i % 2 !== 0 }">
+          <th>{{item.date_time}}</th>
+          <th>{{item.ritmo_cardiaco}}</th>
+          <td>{{item.frecuencia_respiratoria}}</td>
+          <td>{{item.peso}}</td>
+          <td>{{item.altura}}</td>
+          <td>{{item.indice_masa_corporal}}</td>
+          <td>{{item.saturacion_oxigeno}}</td>
+          <td>{{item.temperatura}}</td>
+          <td>{{item.presion_sanguinea_sistolica}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+
+

@@ -1,0 +1,18 @@
+.container {
+    margin-top: 50px;
+}
+
+
+/* Color para las filas pares */
+.table-row-even {
+    background-color: #a4cda4;
+}
+  
+  /* Color para las filas impares */
+.table-row-odd {
+    background-color: #f1f8e6;
+}
+
+.table {
+    font-size: 14px; /* Tamaño de fuente deseado */
+}

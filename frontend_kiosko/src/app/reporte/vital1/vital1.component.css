@@ -1,0 +1,52 @@
+
+.main {
+    margin-top: 20px;
+}
+
+.fixed-card-size {
+    width: 110px; /* Ancho fijo del cuadro de texto */
+    height: 50px; /* Altura fija del cuadro de texto */
+}
+  
+.fixed-text-size {
+    font-size: 12px; /* Tamaño de fuente fijo en píxeles */
+}
+
+.custom-card {
+    background-color:#81bc60; /* Cambia el color de fondo a azul */
+    color: #000; /* Cambia el color del texto a blanco */
+}
+
+.custom-card2 {
+    background-color:#a4cda4; /* Cambia el color de fondo a azul */
+    color: #000000; /* Cambia el color del texto a blanco */
+}
+
+.grid-container {
+    margin: 0; /* Elimina los márgenes del contenedor principal */
+    padding: 0; /* Elimina el padding del contenedor principal */
+}
+
+.card {
+    margin: 0px; /* Ajusta los márgenes de los elementos <div class="card"> */
+}
+
+
+
+.row {
+    margin-left: -10px; /* Elimina el margen izquierdo de la fila */
+    margin-right: -10px; /* Elimina el margen derecho de la fila */
+}
+
+  .col {
+    padding-left: 8px; /* Agrega un espacio de 10px a la izquierda de cada columna */
+    padding-right: 8px; /* Agrega un espacio de 10px a la derecha de cada columna */
+}
+
+
+.custom-btn {
+    background-color: #81bc60;
+    /* Opcional: Puedes agregar estilos adicionales para personalizar el botón */
+    color: white;
+    border-color: #81bc60;
+}

@@ -1,0 +1,54 @@
+mat-toolbar {
+    background-color:#ffffff;
+    height: 12%;
+    width: 100%;
+}
+
+::ng-deep .mat-menu-content {
+
+    background-color: lightgray;
+}
+
+mat-menu-item {
+    background-color: #a4cda4;
+}
+
+button {
+    color: white;
+    background-color: #ffffff;
+}
+
+button:hover {
+    text-decoration: underline;
+}
+
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+.account-picture {
+    max-width: 40px;
+    min-height: 40px;
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+    padding: 25%;
+}
+
+.logo{
+    min-width: 3.5rem;
+    max-width : 6rem;
+    max-height : 5.5rem;
+    position : relative;
+}
+
+.active {
+    background: #a4cda4;
+}
+
+.userData{
+    margin: 8px;
+    text-align:end;
+    color: black;
+    padding: 3px;
+}

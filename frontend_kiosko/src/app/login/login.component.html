@@ -1,0 +1,62 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <img class="profile-img-card" src="./../assets/images/Imagen2.png" alt="preventip" width="60%" height="60%"
+      text-align="center" />
+    <form
+      *ngIf="!isLoggedIn"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        <label for="correo">Correo Electrónico</label>
+        <input
+          type="text"
+          class="form-control"
+          name="correo"
+          [(ngModel)]="form.correo"
+          required
+          #correo="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && correo.errors }"
+        />
+        <div *ngIf="correo.errors && f.submitted" class="invalid-feedback">
+          ¡Se necesita el correo electrónico!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="contrasena">Contraseña</label>
+        <input
+          type="password"
+          class="form-control"
+          name="contrasena"
+          [(ngModel)]="form.contrasena"
+          required
+          minlength="6"
+          #contrasena="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && contrasena.errors }"
+        />
+        <div *ngIf="contrasena.errors && f.submitted" class="invalid-feedback">
+          <div *ngIf="contrasena.errors['required']">Se necesita la contraseña.</div>
+          <div *ngIf="contrasena.errors['minlength']">
+            La contraseña  debe de tener al menos 6 caracteres.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">
+          Inicio de sesión
+        </button>
+      </div>
+      <div class="form-group">
+        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+          Falló el inicio de sesión: {{ errorMessage }}
+        </div>
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isLoggedIn">
+      Sesión iniciada. {{ roles }}.
+    </div>
+  </div>
+</div>

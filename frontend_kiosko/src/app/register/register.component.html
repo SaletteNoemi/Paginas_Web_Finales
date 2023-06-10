@@ -1,0 +1,557 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <img class="profile-img-card" src="./../assets/images/Imagen2.png" alt="preventip" width="60%" height="60%"
+      text-align="center" />
+
+    <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+      <h3 class="indicaciones">Por favor indica toda la información solicitada para poder crear un seguimiento</h3>
+
+
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" name="nombre" [(ngModel)]="form.nombre" required minlength="3"
+          maxlength="20" #nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombre.errors }" />
+        <div class="invalid-feedback" *ngIf="nombre.errors && f.submitted">
+          <div *ngIf="nombre.errors['required']">Se requiere un usuario</div>
+          <div *ngIf="nombre.errors['minlength']">
+            El nombre debe contener al menos 2 caracteres.
+          </div>
+          <div *ngIf="nombre.errors['maxlength']">
+            El nombre no debe contener más de 20 caracteres.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="appellido_paterno">Apellido Paterno</label>
+        <input type="text" class="form-control" name="apellido_paterno" [(ngModel)]="form.apellido_paterno" required
+          minlength="2" maxlength="20" #apellido_paterno="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && apellido_paterno.errors }" />
+        <div class="invalid-feedback" *ngIf="apellido_paterno.errors && f.submitted">
+          <div *ngIf="apellido_paterno.errors['required']">Debe ingresar un apellido.</div>
+          <div *ngIf="apellido_paterno.errors['minlength']">
+            El apellido debe contener al menos 2 caracteres.
+          </div>
+          <div *ngIf="apellido_paterno.errors['maxlength']">
+            El apellido no debe contener más de 20 caracteres.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="apellido_materno">Apellido Materno</label>
+        <input type="text" class="form-control" name="apellido_materno" [(ngModel)]="form.apellido_materno"
+          maxlength="20" #apellido_materno="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && apellido_materno.errors }" />
+        <div class="invalid-feedback" *ngIf="apellido_materno.errors && f.submitted">
+          <div *ngIf="apellido_materno.errors['maxlength']">
+            El apellido materno no debe contener más de 20 caracteres.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="genero">Sexo</label>
+        <select class="form-control" name="genero" [(ngModel)]="form.genero">
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="form.correo" required email #email="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && email.errors }" />
+        <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
+          <div *ngIf="email.errors['required']">
+            Se requiere un correo electrónico.
+          </div>
+          <div *ngIf="email.errors['email']">
+            La dirección del correo electrónica debe ser válida.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="telefono">Número telefónico</label>
+        <input type="text" class="form-control" name="telefono" [(ngModel)]="form.telefono" required minlength="10"
+          maxlength="10" #telefono="ngModel" [ngClass]="{ 'is-invalid': f.submitted && telefono.errors }" />
+        <div class="invalid-feedback" *ngIf="telefono.errors && f.submitted">
+          <div *ngIf="telefono.errors['required']">
+            Se requiere un número telefónico.
+          </div>
+          <div *ngIf="telefono.errors['minlength']">
+            El número telefónico debe tener 10 dígitos.
+          </div>
+          <div *ngIf="telefono.errors['maxlength']">
+            El teléfono no debe contener más de 10 dígitos.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="ciudad">Ciudad</label>
+        <input type="text" class="form-control" name="ciudad" [(ngModel)]="form.ciudad" required #ciudad="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted &&  ciudad.errors }" />
+        <div class="invalid-feedback" *ngIf="ciudad.errors && f.submitted">
+          <div *ngIf="ciudad.errors['required']">
+            Se requiere una ciudad.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="estado">Estado</label>
+        <select class="form-control" name="estado" [(ngModel)]="form.estado">
+          <option value="Aguascalientes">Aguascalientes</option>
+          <option value="Baja California">Baja California</option>
+          <option value="Baja California Sur">Baja California Sur</option>
+          <option value="Campeche">Campeche</option>
+          <option value="Chiapas">Chiapas</option>
+          <option value="Chihuahua">Chihuahua</option>
+          <option value="Ciudad de México">Ciudad de México</option>
+          <option value="Coahuila">Coahuila</option>
+          <option value="Colima">Colima</option>
+          <option value="Durango">Durango</option>
+          <option value="Estado de México">Estado de México</option>
+          <option value="Guanajuato">Guanajuato</option>
+          <option value="Guerrero">Guerrero</option>
+          <option value="Hidalgo">Hidalgo</option>
+          <option value="Jalisco">Jalisco</option>
+          <option value="Michoacán">Michoacán</option>
+          <option value="Morelos">Morelos</option>
+          <option value="Nayarit">Nayarit</option>
+          <option value="Nuevo León">Nuevo León</option>
+          <option value="Oaxaca">Oaxaca</option>
+          <option value="Puebla">Puebla</option>
+          <option value="Querétaro">Querétaro</option>
+          <option value="San Luis Potosí">San Luis Potosí</option>
+          <option value="Sinaloa">Sinaloa</option>
+          <option value="Sonora">Sonora</option>
+          <option value="Tabasco">Tabasco</option>
+          <option value="Tamaulipas">Tamaulipas</option>
+          <option value="Tlaxcala">Tlaxcala</option>
+          <option value="Veracruz">Veracruz</option>
+          <option value="Yucatán">Yucatán</option>
+          <option value="Zacatecas">Zacatecas</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="codigo_postal"> Código Postal</label>
+        <input type="text" class="form-control" name="codigo_postal" [(ngModel)]="form.codigo_postal" required
+          minlength="5" maxlength="5" #codigo_postal="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && codigo_postal.errors }" />
+        <div class="invalid-feedback" *ngIf="codigo_postal.errors && f.submitted">
+          <div *ngIf="codigo_postal.errors['required']">
+            Se requiere un código postal.
+          </div>
+          <div *ngIf="codigo_postal.errors['minlength']">
+            El código postal debe tener 5 dígitos.
+          </div>
+          <div *ngIf="codigo_postal.errors['maxlength']">
+            El código postal no debe contener más de 10 dígitos.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="a_nacimiento">Año de nacimiento</label>
+        <input type="text" class="form-control" name="a_nacimiento" [(ngModel)]="form.a_nacimiento" required
+          #a_nacimiento="ngModel" [ngClass]="{ 'is-invalid': f.submitted && a_nacimiento.errors }" />
+        <div class="invalid-feedback" *ngIf="a_nacimiento.errors && f.submitted">
+          <div *ngIf="a_nacimiento.errors['required']">
+            Por favor ingrese su fecha de nacimiento.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="plan_estatal">Programa estatal</label>
+        <input type="text" class="form-control" name="plan_estatal" [(ngModel)]="form.plan_estatal" required
+          #plan_estatal="ngModel" [ngClass]="{ 'is-invalid': f.submitted && plan_estatal.errors }" />
+        <div class="invalid-feedback" *ngIf="plan_estatal.errors && f.submitted">
+          <div *ngIf="plan_estatal.errors['required']">
+            Por favor ingrese su programa estatal.</div>
+        </div>
+      </div>
+      
+
+     <div class="container">
+        <mat-divider></mat-divider>
+        <h5 class="division_formulario">Padecimientos</h5>
+        <h5 class="indicaciones-basic">
+          Por favor indica todos los padecimientos que tengas
+        </h5>
+
+        <div *ngFor="let item of _listapadecimientos" class="row">        
+        <mat-checkbox 
+              class="example-margin"
+              name="{{item.nombre_padecimiento}}" 
+              (change)="onchange()"
+              value="{{item.id_padecimiento}}"
+              [(ngModel)]="item.isSelected">
+
+        {{item.nombre_padecimiento}}
+
+        </mat-checkbox>
+        <mat-divider></mat-divider>
+        </div>
+
+      </div>
+
+
+
+     <div class="form-group">
+        <mat-divider></mat-divider>
+        <h5 class="header_wodescription">Contraseña usuario</h5>
+
+
+        <label for="password">Contraseña</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.contrasena" required minlength="6"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }" />
+
+        <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors['required']">
+            Se requiere contraseña.
+          </div>
+          <div *ngIf="password.errors['minlength']">
+            La contraseña debe de tener al menos 6 caracteres.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirmar Contraseña</label>
+        <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="form.confirmar_pwd" required #confirmPassword="ngModel" />
+        <span class = "error-msg" *ngIf="(confirmPassword.touched || f.submitted) && form.confirmar_pwd !== form.contrasena"> Las constraseñas no coinciden </span>
+      </div>
+
+      <script>
+        var myInput = document.getElementById("psw");
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var length = document.getElementById("length");
+
+        var password = document.getElementById("password");
+        var confirmPassword = document.getElementById("confirmPassword");
+        var matchMessage = document.getElementById("matchMessage");
+
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function () {
+          document.getElementById("message").style.display = "block";
+        }
+
+        // When the user clicks outside of the password field, hide the message box
+        myInput.onblur = function () {
+          document.getElementById("message").style.display = "none";
+        }
+
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function () {
+          // Validate lowercase letters
+          var lowerCaseLetters = /[a-z]/g;
+          if (myInput.value.match(lowerCaseLetters)) {
+            letter.classList.remove("invalid");
+            letter.classList.add("valid");
+          } else {
+            letter.classList.remove("valid");
+            letter.classList.add("invalid");
+          }
+
+          // Validate capital letters
+          var upperCaseLetters = /[A-Z]/g;
+          if (myInput.value.match(upperCaseLetters)) {
+            capital.classList.remove("invalid");
+            capital.classList.add("valid");
+          } else {
+            capital.classList.remove("valid");
+            capital.classList.add("invalid");
+          }
+
+          // Validate numbers
+          var numbers = /[0-9]/g;
+          if (myInput.value.match(numbers)) {
+            number.classList.remove("invalid");
+            number.classList.add("valid");
+          } else {
+            number.classList.remove("valid");
+            number.classList.add("invalid");
+          }
+
+          // Validate length
+          if (myInput.value.length >= 8) {
+            length.classList.remove("invalid");
+            length.classList.add("valid");
+          } else {
+            length.classList.remove("valid");
+            length.classList.add("invalid");
+          }
+        }
+
+      </script>
+
+
+      <div class="form-group">
+        <h5 class="division_formulario">Pregunta de seguridad para usuario</h5>
+        <h5 class="indicaciones-basic">
+          Por favor indica una pregunta que sea fácil de recordar para ti
+        </h5>
+        <label for="pregunta_seguridad">Pregunta de seguridad</label>
+        <select class="form-control" name="pregunta_seguridad" [(ngModel)]="form.pregunta_seguridad">
+          <option value="1">¿Cuál es el nombre de tu primer mascota?</option>
+          <option value="2">¿A qué secundaria fuiste?</option>
+          <option value="3">¿Cuál es tu equipo deportivo favorito?</option>
+          <option value="4">¿Cuál es tu color favorito?</option>
+          <option value="5">¿En qué ciudad nació tu papá?</option>
+          <option value="6">¿Quién es el héroe de tu infancia?</option>
+          <option value="7">¿Cómo decían de pequeño?</option>
+          <option value="8">¿Cuál es tu comida favorita?</option>
+          <option value="9">¿Cuál es tu película favorita?</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="respuesta_seguridad">Respuesta</label>
+        <input type="text" class="form-control" name="respuesta_seguridad" [(ngModel)]="form.respuesta_seguridad"
+          required #respuesta_seguridad="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted &&  respuesta_seguridad.errors }" />
+        <div class="invalid-feedback" *ngIf="respuesta_seguridad.errors && f.submitted">
+          <div *ngIf="respuesta_seguridad.errors['required']">
+            Se requiere una respuesta.
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="form-group">
+        <mat-divider></mat-divider>
+        <h5 class="contacto_confianza">Contacto confianza</h5>
+        <h5 class="indicaciones-basic">
+          Por favor indica la información personal de tu contacto de confianza
+        </h5>
+        <label for="nombre_contacto_confianza">Nombre contacto de confianza</label>
+        <input type="text" class="form-control" name="nombre_contacto_confianza"
+          [(ngModel)]="form.nombre_contacto_confianza" required minlength="3" maxlength="20"
+          #nombre_contacto_confianza="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && nombre_contacto_confianza.errors }" />
+        <div class="invalid-feedback" *ngIf="nombre_contacto_confianza.errors && f.submitted">
+          <div *ngIf="nombre_contacto_confianza.errors['required']">Se requiere un usuario</div>
+          <div *ngIf="nombre_contacto_confianza.errors['minlength']">
+            El nombre debe contener al menos 2 caracteres.
+          </div>
+          <div *ngIf="nombre_contacto_confianza.errors['maxlength']">
+            El nombre no debe contener más de 20 caracteres.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="appellido_paterno_contacto_confianza">Apellido paterno contacto de confianza</label>
+        <input type="text" class="form-control" name="apellido_paterno_contacto_confianza"
+          [(ngModel)]="form.apellido_paterno_contacto_confianza" required minlength="2" maxlength="20"
+          #apellido_paterno_contacto_confianza="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && apellido_paterno_contacto_confianza.errors }" />
+        <div class="invalid-feedback" *ngIf="apellido_paterno_contacto_confianza.errors && f.submitted">
+          <div *ngIf="apellido_paterno_contacto_confianza.errors['required']">Debe ingresar un apellido.</div>
+          <div *ngIf="apellido_paterno_contacto_confianza.errors['minlength']">
+            El apellido debe contener al menos 2 caracteres.
+          </div>
+          <div *ngIf="apellido_paterno_contacto_confianza.errors['maxlength']">
+            El apellido no debe contener más de 20 caracteres.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="apellido_materno_contacto_confianza">Apellido materno contacto de confianza</label>
+        <input type="text" class="form-control" name="apellido_materno_contacto_confianza"
+          [(ngModel)]="form.apellido_materno_contacto_confianza" maxlength="20"
+          #apellido_materno_contacto_confianza="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && apellido_materno_contacto_confianza.errors }" />
+        <div class="invalid-feedback" *ngIf="apellido_materno_contacto_confianza.errors && f.submitted">
+          <div *ngIf="apellido_materno_contacto_confianza.errors['maxlength']">
+            El apellido materno no debe contener más de 20 caracteres.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="correo_contacto_confianza">Correo electrónico</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="form.correo_contacto_confianza" required
+          email #correo_contacto_confianza="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && correo_contacto_confianza.errors }" />
+        <div class="invalid-feedback" *ngIf="correo_contacto_confianza.errors && f.submitted">
+          <div *ngIf="correo_contacto_confianza.errors['required']">
+            Se requiere un correo electrónico.
+          </div>
+          <div *ngIf="correo_contacto_confianza.errors['email']">
+            La dirección del correo electrónica debe ser válida.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="tel_contacto_confianza">Número telefónico contacto de confianza</label>
+        <input type="text" class="form-control" name="tel_contacto_confianza" [(ngModel)]="form.tel_contacto_confianza"
+          required minlength="10" maxlength="10" #tel_contacto_confianza="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && tel_contacto_confianza.errors }" />
+        <div class="invalid-feedback" *ngIf="tel_contacto_confianza.errors && f.submitted">
+          <div *ngIf="tel_contacto_confianza.errors['required']">
+            Se requiere un número telefónico.
+          </div>
+          <div *ngIf="tel_contacto_confianza.errors['minlength']">
+            El número telefónico debe tener 10 dígitos.
+          </div>
+          <div *ngIf="tel_contacto_confianza.errors['maxlength']">
+            El número telefónico no debe contener más de 10 dígitos.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <mat-divider></mat-divider>
+        <h5 class="header_wodescription">Contraseña contacto confianza</h5>
+        <label for="password">Contraseña</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.contrasena_contacto_confianza"
+          required
+          minlength="6"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+        />
+        <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors['required']">
+            Se requiere contraseña.
+          </div>
+          <div *ngIf="password.errors['minlength']">
+            La contraseña debe de tener al menos 6 caracteres.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword2">Confirmar Contraseña</label>
+        <input type="password" class="form-control" name="confirmPassword2" [(ngModel)]="form.confirmar_pwd_contacto" required #confirmPassword2="ngModel" />
+        <span class = "error-msg" *ngIf="(confirmPassword2.touched || f.submitted) && form.confirmar_pwd_contacto !== form.contrasena_contacto_confianza"> Las constraseñas no coinciden </span>
+      </div>
+
+      <script>
+        var myInput = document.getElementById("psw");
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var length = document.getElementById("length");
+        
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function() {
+          document.getElementById("message").style.display = "block";
+        }
+        
+        // When the user clicks outside of the password field, hide the message box
+        myInput.onblur = function() {
+          document.getElementById("message").style.display = "none";
+        }
+        
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function() {
+          // Validate lowercase letters
+          var lowerCaseLetters = /[a-z]/g;
+          if(myInput.value.match(lowerCaseLetters)) {
+            letter.classList.remove("invalid");
+            letter.classList.add("valid");
+          } else {
+            letter.classList.remove("valid");
+            letter.classList.add("invalid");
+        }
+        
+          // Validate capital letters
+          var upperCaseLetters = /[A-Z]/g;
+          if(myInput.value.match(upperCaseLetters)) {
+            capital.classList.remove("invalid");
+            capital.classList.add("valid");
+          } else {
+            capital.classList.remove("valid");
+            capital.classList.add("invalid");
+          }
+        
+          // Validate numbers
+          var numbers = /[0-9]/g;
+          if(myInput.value.match(numbers)) {
+            number.classList.remove("invalid");
+            number.classList.add("valid");
+          } else {
+            number.classList.remove("valid");
+            number.classList.add("invalid");
+          }
+        
+          // Validate length
+          if(myInput.value.length >= 8) {
+            length.classList.remove("invalid");
+            length.classList.add("valid");
+          } else {
+            length.classList.remove("valid");
+            length.classList.add("invalid");
+          }
+        }
+      </script>
+
+      <div class="form-group">
+        <mat-divider></mat-divider>
+        <h5 class="division_formulario">Pregunta de seguridad para contacto de confianza</h5>
+        <h5 class="indicaciones-basic">
+          Por favor indica una pregunta que sea fácil de recordar para tu contacto de confianza
+        </h5>
+        <label for="pregunta_seguridad_contacto_confianza">Pregunta de seguridad</label>
+        <select class="form-control" name="pregunta_seguridad_contacto_confianza" [(ngModel)]="form.pregunta_seguridad_contacto_confianza">
+          <option value="1">¿Cuál es el nombre de tu primer mascota?</option>
+          <option value="2">¿A qué secundaria fuiste?</option>
+          <option value="3">¿Cuál es tu equipo deportivo favorito?</option>
+          <option value="4">¿Cuál es tu color favorito?</option>
+          <option value="5">¿En qué ciudad nació tu papá?</option>
+          <option value="6">¿Quién es el héroe de tu infancia?</option>
+          <option value="7">¿Cómo decían de pequeño?</option>
+          <option value="8">¿Cuál es tu comida favorita?</option>
+          <option value="9">¿Cuál es tu película favorita?</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="respuesta_seguridad_confianza">Respuesta</label>
+        <input type="text" class="form-control" name="respuesta_seguridad_confianza" [(ngModel)]="form.respuesta_seguridad_confianza"
+          required #respuesta_seguridad_confianza="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted &&  respuesta_seguridad_confianza.errors }" />
+        <div class="invalid-feedback" *ngIf="respuesta_seguridad_confianza.errors && f.submitted">
+          <div *ngIf="respuesta_seguridad_confianza.errors['required']">
+            Se requiere una respuesta.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <button class="btn btn-primary btn-block" style="margin-top: 2rem">Registrarse</button>
+      </div>
+
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        ¡El registro falló!<br />{{ errorMessage }}
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      ¡Se completó el registro exitosamente!
+    </div>
+  </div>
+</div>
